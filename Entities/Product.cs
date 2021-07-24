@@ -8,19 +8,12 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    [Table("productts",Schema ="prod")]
+  
    public class Product
     {
-        //[Key] //set primary key
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)] not Automatic Generate
         public int Id { get; set; }
-        [Column(TypeName ="varchar(50)")]
         public string Name { get; set; }
-        [Column("pricee")]
-        [Required]
         public int Price { get; set; }
-
-        [NotMapped]
         public int TotalPrice { get; set; }
     }
 }
