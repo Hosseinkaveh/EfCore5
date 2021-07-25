@@ -18,5 +18,7 @@ namespace Entities
 
         public Category category { get; set; }
         public int FK_CategoryId { get; set; }
+
+        public ProductImage productImage { get; set; }
     }
 }
