@@ -12,16 +12,16 @@ namespace Entities
     public class Product
     {
         public int Id { get; set; }
+
         public string Name { get; set; }
+
         public int Price { get; set; }
-        public int TotalPrice { get; set; }
 
-        public Category category { get; set; }
-        public int FK_CategoryId { get; set; }
+        public int Score { get; set; }
 
-        public ProductImage productImage { get; set; }
+        public DateTime Createtime { get; set; }
 
-        public ICollection<ProductTag> productTags { get; set; }
+
 
     }
 }
