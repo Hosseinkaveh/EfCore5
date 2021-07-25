@@ -1,5 +1,4 @@
-﻿using DAL.Config;
-using Entities;
+﻿using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace DAL
     public class DataContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Category> categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,14 +20,7 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("dbo");
-
-            modelBuilder.ApplyConfiguration(new ProductConfig());
-            modelBuilder.ApplyConfiguration(new UserConfig());
-
-            modelBuilder.Entity<User>()
-                .Property(p => p.UserName)
-                .HasColumnType("nvarchar(500)");
+            
         }
     }
 }
