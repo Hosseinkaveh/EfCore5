@@ -20,7 +20,8 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-         
+            modelBuilder.Entity<ProductTag>()
+                   .HasKey(p => new { p.ProductId, p.TagId });
         }
     }
 }

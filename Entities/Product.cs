@@ -20,5 +20,8 @@ namespace Entities
         public int FK_CategoryId { get; set; }
 
         public ProductImage productImage { get; set; }
+
+        public ICollection<ProductTag> productTags { get; set; }
+
     }
 }
