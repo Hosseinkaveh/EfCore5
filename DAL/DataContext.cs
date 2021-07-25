@@ -20,7 +20,15 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            //modelBuilder.Entity<Product>()
+            //    .HasOne(p => p.category)
+            //    .WithMany(p => p.products)
+            //    .HasForeignKey(p => p.FK_CategoryId);
+
+            modelBuilder.Entity<Category>()
+                .HasMany(p => p.products)
+                .WithOne(p => p.category)
+                .HasForeignKey(p => p.FK_CategoryId);
         }
     }
 }
