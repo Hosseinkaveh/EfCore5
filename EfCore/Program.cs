@@ -14,16 +14,6 @@ namespace EfCore
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
-            context.users.Add(new User
-            {
-                Email = "k.pouria7@gmail.com"
-            });
-            context.orders.Add(new Order
-            {
-                orderStatus = orderStatus.Processing,
-                OrderNumber = 1
-            });
-            context.SaveChanges();
 
             Console.WriteLine("Hello World!");
             Console.ReadLine();

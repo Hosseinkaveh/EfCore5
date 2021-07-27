@@ -22,32 +22,10 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Order>()
-            //    .Property(p => p.orderStatus)
-            //    .HasConversion(p => p.ToString(), p => (orderStatus)Enum.Parse(typeof(orderStatus), p));
-
-            //or
-
-            modelBuilder.Entity<Order>()
-               .Property(p => p.orderStatus)
-               .HasConversion(new ValueConverter<orderStatus, string>(p => p.ToString(), p => (orderStatus)Enum.Parse(typeof(orderStatus), p)));
-
-
-            modelBuilder.Entity<User>()
-              .Property(p => p.Email)
-              .HasConversion(p => Base64Encode(p), p => Base64Decode(p));
+            modelBuilder.Entity<User>().HasData(new User { Email = "k.p@gmail.com", Id = 1 });
+            modelBuilder.Entity<Order>().HasData(new Order { Id=1,OrderNumber=1,orderStatus=orderStatus.Delivered });
 
         }
-        public static string Base64Encode(string plainText)
-        {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-            return System.Convert.ToBase64String(plainTextBytes);
-        }
-
-        public static string Base64Decode(string base64EncodedData)
-        {
-            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
-            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-        }
+     
     }
 }
