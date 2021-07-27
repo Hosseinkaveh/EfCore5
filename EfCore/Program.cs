@@ -14,18 +14,15 @@ namespace EfCore
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
-
-            List<Order> orders = new List<Order>();
-
-            for (int i = 0; i < 300; i++)
+            context.users.Add(new User
             {
-                orders.Add(
-                    new Order
-                    {
-                        date = DateTime.Now
-                    });
-            }
-            context.orders.AddRange(orders);
+                Email = "k.pouria7@gmail.com"
+            });
+            context.orders.Add(new Order
+            {
+                orderStatus = orderStatus.Processing,
+                OrderNumber = 1
+            });
             context.SaveChanges();
 
             Console.WriteLine("Hello World!");

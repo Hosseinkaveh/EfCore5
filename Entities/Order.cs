@@ -12,6 +12,12 @@ namespace Entities
 
         public int OrderNumber { get; set; }
 
-        public DateTime date { get; set; }
+        public orderStatus orderStatus { get; set; }
+    }
+    public enum orderStatus
+    {
+        Processing,
+        Sent,
+        Delivered,
     }
 }
