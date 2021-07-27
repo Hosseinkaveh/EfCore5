@@ -11,7 +11,6 @@ namespace DAL
 {
     public class DataContext : DbContext
     {
-        public DbSet<Order> orders { get; set; }
         public DbSet<User> users { get; set; }
 
 
@@ -22,9 +21,11 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(new User { Email = "k.p@gmail.com", Id = 1 });
-            modelBuilder.Entity<Order>().HasData(new Order { Id=1,OrderNumber=1,orderStatus=orderStatus.Delivered });
-
+            modelBuilder.Entity<User>()
+                .OwnsOne(p => p.Home);
+          
+            modelBuilder.Entity<User>()
+                .OwnsOne(p => p.Workplace);
         }
      
     }
