@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class User
+    public class Comment
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-
-        public Image Image { get; set; }
-        public ICollection<Comment> comments { get; set; }
-
+        public string CmText { get; set; }
+        public User User { get; set; }
+        public int UserId { get; set; }
     }
 }

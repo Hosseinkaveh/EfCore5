@@ -12,6 +12,7 @@ namespace DAL
     public class DataContext : DbContext
     {
         public DbSet<User> users { get; set; }
+        public DbSet<Comment> comments { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -21,11 +22,7 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .OwnsOne(p => p.Home);
-          
-            modelBuilder.Entity<User>()
-                .OwnsOne(p => p.Workplace);
+           
         }
      
     }
